@@ -1,0 +1,50 @@
+<div class="comments">
+    <button class="comments__button" id="js-comments">
+        {{t "Load comments"}}
+    </button>
+    <div class="comments__inner comments__inner--hidden" id="js-comments__inner">
+        <h3 class="h4">{{t "Comments"}}</h3>
+        <div id="disqus_thread"></div>
+
+        <script>
+            var disqus_shortname = 'your_disqus_shortname';
+            var disqus_loaded = false;
+            var disqus_config = function () {
+                this.page.url = "{{@site.url}}{{url}}";
+                this.page.identifier = "4";
+            };
+
+            function publiiLoadDisqus() {
+                if (disqus_loaded) {
+                    return false;
+                }
+
+                var top = document.getElementById("disqus_thread")
+                    .offsetTop;
+
+                if (
+                    !disqus_loaded &&
+                    (window.scrollY || window.pageYOffset) +
+                    window.innerHeight >
+                    top
+                ) {
+                    disqus_loaded = true;
+
+                    (function () {
+                        var d = document,
+                            s = d.createElement("script");
+                        s.src = `//${disqus_shortname}.disqus.com/embed.js`;
+                        s.setAttribute("data-timestamp", +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                }
+            }
+
+            publiiLoadDisqus();
+
+            window.onscroll = function () {
+                publiiLoadDisqus();
+            };</script><noscript>Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+</div>

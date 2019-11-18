@@ -1,0 +1,33 @@
+{{!< default}}
+{{!-- 通用的 Page 页面，如需自定义page，请自行添加 page-xxx.hbs --}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+{{!-- 封面图 --}}
+<div class="hero author">
+    <div class="hero__wrapper">
+        <figure class="hero__image">
+            {{#if feature_image}}
+            <img class="hero__image-img lazyload" data-src="{{feature_image}}" data-srcset="{{feature_image}}"
+                data-aspectratio="1.7798045602605863" data-sizes="auto" height="3070" width="5464" alt="{{title}}" />
+            {{/if}}
+        </figure>
+        <div class="hero__inner">
+            <h1>
+                {{t title}}
+            </h1>
+        </div>
+    </div>
+</div>
+{{!-- 内容 --}}
+<main class="main main--with-pagination">
+    <div class="wrapper">
+        <div class="page">
+            {{content}}
+        </div>
+    </div>
+</main>
+
+{{/post}}

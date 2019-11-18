@@ -1,0 +1,43 @@
+{{!< default}}
+
+{{#tag}}
+<div class="hero author">
+    <div class="hero__wrapper">
+        <figure class="hero__image">
+            {{#if feature_image}}
+            <img class="hero__image-img lazyload" data-src="{{feature_image}}" data-srcset="{{feature_image}}"
+                data-aspectratio="1.7798045602605863" data-sizes="auto" height="3070" width="5464" alt="{{title}}" />
+            {{/if}}
+        </figure>
+        <div class="hero__inner">
+            <h1>
+                {{#if meta_title}}
+                {{meta_title}}
+                {{else}}
+                {{name}}
+                {{/if}}
+            </h1>
+            <h3>
+                {{#if description}}
+                {{description}}
+                {{else}}
+                {{plural ../pagination.total empty=(t "A collection of posts") singular=(t "A collection of % posts") plural=(t "A collection of % posts")}}
+                {{/if}}
+            </h3>
+        </div>
+    </div>
+</div>
+{{/tag}}
+
+<main class="main main--with-pagination">
+    <div class="wrapper">
+        <div class="page">
+            <div class="page__grid">
+                {{#foreach posts}}
+                {{> "tag-card"}}
+                {{/foreach}}
+            </div>
+        </div>
+        {{pagination}}
+    </div>
+</main>

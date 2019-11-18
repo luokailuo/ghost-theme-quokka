@@ -1,0 +1,12 @@
+{{!-- 分页 --}}
+<nav class="pagination pagination--numbered">
+    <ul>
+        {{#if prev}}
+        <li><a href="{{page_url prev}}">{{t "Newer Posts"}}</a></li>
+        {{/if}}
+        <li>{{t "Page {page} of {pages}" page=page pages=pages}}</li>
+        {{#if next}}
+        <li><a href="{{page_url next}}">{{t "Older Posts"}}</a></li>
+        {{/if}}
+    </ul>
+</nav>

@@ -1,0 +1,28 @@
+{{!-- 菜单导航 --}}
+<ul id="js-navbar-menu" class="navbar__menu">
+    {{#foreach navigation}}
+    <li class="has-submenu">
+        <a target="_self" aria-haspopup="true" href="{{url absolute="true"}}">
+            {{t label}}
+        </a>
+    </li>
+    {{/foreach}}
+    {{!-- 繁简转换按钮 --}}
+    <li class="has-submenu">
+        <a target="_self" id="translateLink" href="javascript:translatePage();">繁</a>
+    </li>
+</ul>
+
+{{#contentFor "scripts"}}
+<script src="{{asset "js/tw_cn.js"}}"></script>
+<script type="text/javascript">
+    var defaultEncoding = 1; // 1-繁体，2-简体
+    var translateDelay = 0;
+    var cookieDomain = "https://yehuzi.com/";
+    var msgToTraditionalChinese = "繁";
+    var msgToSimplifiedChinese = "简";
+    var translateButtonId = "translateLink"; //id
+    translateInitilization();
+
+</script>
+{{/contentFor}}

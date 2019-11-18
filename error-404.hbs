@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="{{@site.lang}}">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="{{asset "img/favicon.png"}}">
+    <link rel="stylesheet" href="{{asset "css/all.min.css"}}" />
+    <link rel="stylesheet" href="{{asset "css/tiny-slider.css"}}" />
+
+    {{ghost_head}}
+</head>
+
+<body>
+    {{> "header"}}
+    <main class="main main--with-pagination">
+        <div class="wrapper">
+            <div class="page">
+                <div class="error-wrap">
+                    <div class="error-img">
+                        <img class="lazyload" data-src="{{feature_image}}" data-srcset="{{asset "img/404.gif"}}"
+                            data-sizes="auto" height="1548" width="2600" alt="{{title}}" />
+                    </div>
+                    <div class="error-msg">
+                        <h1 class="error-code">{{code}}</h1>
+                        <p class="error-description">{{t message}}</p>
+                        <a href="{{@site.url}}">
+                            <button class="comments__button" id="js-comments">
+                                {{t "Go to the front page"}}
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    {{> "footer"}}
+</body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="{{asset "js/lazysizes.min.js?v=c7552affa0e5c6badad03286730a82bb"}}"></script>
+<script src="{{asset "js/plugins.min.js?v=c7552affa0e5c6badad03286730a82bb"}}"></script>
+<script src="{{asset "js/tiny-slider.min.js?v=c7552affa0e5c6badad03286730a82bb"}}"></script>
+<script src="{{asset "js/tw_cn.js"}}"></script>
+
+<script type="text/javascript">
+    var defaultEncoding = 1; // 1-繁体，2-简体
+    var translateDelay = 0;
+    var cookieDomain = "https://yehuzi.com/";
+    var msgToTraditionalChinese = "繁";
+    var msgToSimplifiedChinese = "简";
+    var translateButtonId = "translateLink"; //id
+    translateInitilization();
+</script>
+
+<script>
+    var lazyFeaturedImage = function lazyFeaturedImage() {
+        var lazyFeaturedImageImages = document.querySelectorAll(
+            ".hero__image-img"
+        );
+
+        for (var i = 0; i < lazyFeaturedImageImages.length; i++) {
+            var lazyFeaturedImageImg = lazyFeaturedImageImages[i];
+
+            lazyFeaturedImageImg.addEventListener("lazyloaded", function (e) {
+                var featuredImage = e.target.parentNode;
+                featuredImage.classList.add("hero__image--overlay");
+            });
+        }
+    };
+    lazyFeaturedImage();
+</script>
+
+</html>

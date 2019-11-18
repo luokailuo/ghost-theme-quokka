@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="{{@site.lang}}">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>{{meta_title}}</title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="shortcut icon" href="{{asset "img/favicon.png"}}">
+  <link rel="stylesheet" href="{{asset "css/all.min.css"}}" />
+  <link rel="stylesheet" href="{{asset "css/tiny-slider.css"}}" />
+
+  {{ghost_head}}
+</head>
+
+<body>
+  {{> "header"}}
+  {{{body}}}
+  {{> "footer"}}
+
+  {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
+  {{ghost_foot}}
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="{{asset "js/lazysizes.min.js?v=c7552affa0e5c6badad03286730a82bb"}}"></script>
+  <script src="{{asset "js/plugins.min.js?v=c7552affa0e5c6badad03286730a82bb"}}"></script>
+  <script src="{{asset "js/tiny-slider.min.js?v=c7552affa0e5c6badad03286730a82bb"}}"></script>
+
+  {{!-- 图片懒加载 --}}
+  <script>
+    var lazyFeaturedImage = function lazyFeaturedImage() {
+      var lazyFeaturedImageImages = document.querySelectorAll(
+        ".hero__image-img"
+      );
+
+      for (var i = 0; i < lazyFeaturedImageImages.length; i++) {
+        var lazyFeaturedImageImg = lazyFeaturedImageImages[i];
+
+        lazyFeaturedImageImg.addEventListener("lazyloaded", function (e) {
+          var featuredImage = e.target.parentNode;
+          featuredImage.classList.add("hero__image--overlay");
+        });
+      }
+    };
+    lazyFeaturedImage();
+  </script>
+  {{!-- 走马灯 --}}
+  <script>
+    window.onload = function () {
+      var slider = document.getElementsByClassName("hero__slider");
+      if (slider && slider.length > 0) {
+        var slider = tns({
+          container: ".hero__slider",
+          mode: "carousel",
+          axis: "horizontal",
+          items: 1,
+          loop: true,
+          mouseDrag: true,
+          swipeAngle: 15,
+          speed: 400,
+          controls: false,
+          controlsPosition: "bottom",
+          arrowKeys: true,
+          autoplay: true,
+          autoplayButtonOutput: false,
+          autoplayTimeout: 5000,
+          rewind: false
+        });
+      }
+    };
+  </script>
+  
+  {{!-- 接收 #contentFor helper 的 script --}}
+  {{{block "scripts"}}}
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+{{!< default}}
+
+{{#post}}
+<article>
+    {{!-- 封面图 --}}
+    <div class="hero">
+        <div class="hero__wrapper">
+            <figure class="hero__image">
+                {{#if feature_image}}
+                <img class="hero__image-img lazyload" data-src="{{feature_image}}" data-srcset="{{feature_image}}"
+                    data-aspectratio="1.7798045602605863" data-sizes="auto" height="3070" width="5464"
+                    alt="{{title}}" />
+                {{else}}
+                <img class="hero__image-img lazyload" data-src="{{asset "img/placeholder.jpg"}}"
+                    data-srcset="{{asset "img/placeholder.jpg"}}" data-aspectratio="1.7798045602605863"
+                    data-sizes="auto" height="3070" width="5464" alt="{{title}}" />
+                {{/if}}
+            </figure>
+            <div class="hero__inner">
+                <h1 class="hero__title">
+                    {{title}}
+                </h1>
+                <div class="post__meta">
+                    <time class="page__item-date"
+                        datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY, MMM Do"}}</time>
+                    {{#if tags}}
+                    {{#foreach tags}}
+                    <span class="post__meta-category tag-{{slug}}"><a href="{{url}}">{{name}}</a></span>
+                    {{/foreach}}
+                    {{/if}}
+                    <span
+                        class="post__meta-reading-time">{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{!-- 内容 --}}
+    <div class="main">
+        <div class="wrapper">
+            <div class="page post">
+                <div class="post__inner">
+                    <div class="post__entry">
+                        {{content}}
+                    </div>
+                    <footer>
+                        {{!-- tags --}}
+                        {{#if tags}}
+                        <ul class="post__tag">
+                            {{#foreach tags}}
+                            <li class="invert tag-{{slug}}"><a href="{{url}}" title="{{name}}">{{name}}</a></li>
+                            {{/foreach}}
+                        </ul>
+                        {{/if}}
+                        {{!-- 分享 --}}
+                        {{!-- <div class="post__share"></div> --}}
+                        {{!-- 作者信息 --}}
+                        <div class="post__bio">
+                            {{#primary_author}}
+                            {{#if profile_image}}
+                            <img class="lazyload" data-src="{{profile_image}}" alt="{{name}}" />
+                            {{/if}}
+                            <div>
+                                <h3 class="h5">
+                                    {{name}}
+                                </h3>
+                                <p>
+                                    {{#if bio}}
+                                    <div>{{{bio}}}</div>
+                                    {{else}}
+                                    <p>Read <a href="{{url}}">more posts</a> by this author.</p>
+                                    {{/if}}
+                                </p>
+                            </div>
+                            {{/primary_author}}
+                        </div>
+                        {{!-- 上一页/下一页 --}}
+                        <nav class="post__nav" id="js-post__nav">
+                            {{#next_post}}
+                            <div class="post__nav__prev">
+                                <a href="{{url}}" rel="prev" class="post__nav__link">
+                                    {{#if feature_image}}
+                                    <img class="lazyload" data-src="{{feature_image}}" data-srcset="{{feature_image}}"
+                                        data-expand="300" alt="Alt" />
+                                    {{else}}
+                                    <img class="lazyload" data-src="{{asset "img/placeholder.jpg"}}"
+                                        data-srcset="{{asset "img/placeholder.jpg"}}" data-expand="300" alt="Alt" />
+                                    {{/if}}
+
+                                    <div class="post__nav__text">
+                                        {{t "Previous post"}}
+                                        <h5 class="invert">
+                                            {{title}}
+                                        </h5>
+                                    </div>
+                                </a>
+                            </div>
+                            {{/next_post}}
+                            {{#prev_post}}
+                            <div class="post__nav__next">
+                                <a href="{{url}}" rel="next" class="post__nav__link">
+                                    <div class="post__nav__text">
+                                        {{t "Next post"}}
+                                        <h5 class="invert">
+                                            {{title}}
+                                        </h5>
+                                    </div>
+                                    {{#if feature_image}}
+                                    <img class="lazyload" data-src="{{feature_image}}" data-srcset="{{feature_image}}"
+                                        data-expand="300" alt="Alt" />
+                                    {{else}}
+                                    <img class="lazyload" data-src="{{asset "img/placeholder.jpg"}}"
+                                        data-srcset="{{asset "img/placeholder.jpg"}}" data-expand="300" alt="Alt" />
+                                    {{/if}}
+                                </a>
+                            </div>
+                            {{/prev_post}}
+                        </nav>
+                    </footer>
+                    {{!-- 评论 --}}
+                    {{> comments}}
+                </div>
+            </div>
+            {{!-- 相关文章 --}}
+            {{#get "posts" filter="primary_tag:{{primary_tag.slug}}+id:-{{id}}" limit="3" include="tags" as |related
+            pages|}}
+            {{#if pages.total}}
+            <div class="page post__related">
+                <h3 class="h4">{{t "Similar posts"}}</h3>
+                <div class="post__related__wrap">
+                    {{#foreach related}}
+                    <figure>
+                        <a {{#if canonical_url}}href="{{canonical_url}}" target="_blank" rel="noopener"
+                            {{else}}href="{{url}}" {{/if}}>
+                            {{#if feature_image}}
+                            <img class="lazyload" data-src="{{feature_image}}" data-srcset="{{feature_image}}"
+                                data-expand="300" alt="{{title}}" />
+                            {{else}}
+                            <img class="lazyload" data-src="{{asset "img/placeholder.jpg"}}"
+                                data-srcset="{{feature_image}}" data-expand="300" alt="{{title}}" />
+                            {{/if}}
+                        </a>
+                        <figcaption>
+                            <h4 class="h6">
+                                <a href="{{url}}" class="invert">{{title}}</a>
+                            </h4>
+                        </figcaption>
+                    </figure>
+                    {{/foreach}}
+                </div>
+            </div>
+            {{/if}}
+            {{/get}}
+
+        </div>
+    </div>
+</article>
+
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+
+{{/contentFor}}
+
+{{/post}}

@@ -1,0 +1,18 @@
+<header class="header" id="js-header">
+    <div>
+        {{#if @site.title}}
+        <a href="/" class="logo">{{@site.title}}</a>
+        {{else}}
+        <a href="/" class="logo">
+            <svg>
+                <use xlink:href="{{asset "img/svg-map.svg"}}#logo" /></svg>
+        </a>
+        {{/if}}
+        <nav class="navbar">
+            <button class="navbar__toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false">
+                <span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span>
+            </button>
+            {{navigation}}
+        </nav>
+    </div>
+</header>

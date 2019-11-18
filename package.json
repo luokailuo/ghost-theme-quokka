@@ -1,0 +1,41 @@
+{
+    "name": "quokka",
+    "description": "a modern, clean, multi-picture, responsive ghost theme.",
+    "version": "1.0.0",
+    "engines": {
+        "ghost": ">=2.0.0",
+        "ghost-api": "v2"
+    },
+    "license": "MIT",
+    "scripts": {
+        "dev": "gulp",
+        "test": "gscan .",
+        "pretest": "gulp build",
+        "preship": "yarn test"
+    },
+    "author": {
+        "name": "yehuzi",
+        "email": "i@yehuzi.com"
+    },
+    "homepage": "https://github.com/yehuzi/ghost-theme-quokka",
+    "devDependencies": {
+        "autoprefixer": "9.4.10",
+        "cssnano": "4.1.10",
+        "gscan": "2.5.1",
+        "gulp": "4.0.0",
+        "gulp-livereload": "4.0.1",
+        "gulp-postcss": "8.0.0",
+        "gulp-rename": "^1.2.0",
+        "gulp-sourcemaps": "2.6.5",
+        "gulp-uglify": "3.0.2",
+        "gulp-util": "3.0.8",
+        "gulp-watch": "5.0.1",
+        "gulp-zip": "4.2.0",
+        "postcss-color-function": "4.0.1",
+        "postcss-custom-properties": "8.0.9",
+        "postcss-easy-import": "3.0.0"
+    },
+    "config": {
+        "posts_per_page": 10
+    }
+}

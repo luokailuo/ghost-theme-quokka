@@ -1,0 +1,30 @@
+<article class="page__item {{post_class}}{{#unless feature_image}} no-image{{/unless}}">
+  <div class="divider divider--center">
+    <header class="page__item-header">
+      <h2 class="page__item-title">
+        <a {{#if canonical_url}}href="{{canonical_url}}" target="_blank" rel="noopener" {{else}}href="{{url}}" {{/if}} class="invert">{{title}}</a>
+      </h2>
+      <div class="post__meta">
+        <time class="page__item-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY, MMM Do"}}</time>
+        {{#if tags}}
+        {{#foreach tags}}
+        <span class="post__meta-category tag-{{slug}}"><a href="{{url}}">{{name}}</a></span>
+        {{/foreach}}
+        {{/if}}
+        <span class="post__meta-reading-time">{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
+      </div>
+    </header>
+    <div class="page__item-image page__item-image--wide">
+      <a {{#if canonical_url}}href="{{canonical_url}}" target="_blank" rel="noopener" {{else}}href="{{url}}" {{/if}} class="page__item-image__wrap page__item-image__wrap--link"
+        style="padding-bottom: calc(1548/2600 * 100%)">
+        {{#if feature_image}}
+        <img class="lazyload" data-src="{{feature_image}}" data-srcset="{{feature_image}}"
+          data-aspectratio="1.6795865633074936" data-sizes="auto" height="1548" width="2600" alt="{{title}}" />
+        {{else}}
+        <img class="lazyload" data-src="{{asset "img/placeholder.jpg"}}" data-srcset="{{asset "img/placeholder.jpg"}}"
+          data-aspectratio="1.6795865633074936" data-sizes="auto" height="1548" width="2600" alt="{{title}}" />
+        {{/if}}
+      </a>
+    </div>
+  </div>
+</article>
