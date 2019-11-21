@@ -1,4 +1,4 @@
-## Quokka（曲卡）
+## Quokka
 
 #### [Live Demo ](https://work.yehuzi.com/quokka/)     
 
@@ -36,4 +36,8 @@ var disqus_shortname = '你的 Disqus shortname';
 
 ##### 2.3 添加归档页
 
-请参考[这篇文章](https://yehuzi.com/gei-ghostbo-ke-tian-jia-tagsgui-dang-ye/)
+请参考[这篇文章](https://yehuzi.com/gei-ghostbo-ke-tian-jia-tagsgui-dang-ye/)      
+
+
+## 截图 
+![](/quokkass.6afb8f38.jpg)
