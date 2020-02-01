@@ -2,13 +2,16 @@
 
 ### [Live Demo ](https://yehuzi.github.io/demo/quokka/)     
 
-😊**Hello，Quokka** ：A modern, clean, multi-picture, responsive Ghost theme. 一个现代、简洁、多图、响应式的 Ghost 主题。
+
+😊Hello，Quokka     
+
+A modern, clean, multi-picture, responsive Ghost theme.      
+
+一个现代、简洁、多图、响应式的 Ghost 主题。
 
 #### 为什么叫 Quokka 
 
-Quokka，中文名：短尾矮袋鼠，是世界最小的袋鼠之一，身高不到60厘米，它们看起来像老鼠一样，大多生活在澳大利亚西南海岸外的洛特尼斯岛，它们因胖嘟嘟的脸庞和“甜美”的笑容被称为“世界上最快乐的动物”。     
-
-采用这个名字，也是希望大家都能非常快乐的使用该主题。     
+Quokka，中文名：短尾矮袋鼠，是世界最小的袋鼠之一，身高不到60厘米，它们看起来像老鼠一样，大多生活在澳大利亚西南海岸外的洛特尼斯岛，它们因胖嘟嘟的脸庞和“甜美”的笑容被称为“世界上最快乐的动物”，希望大家都能非常快乐的使用这个主题。     
 
 ## 使用
 
