@@ -1,6 +1,6 @@
 ## Quokka
 
-#### [Live Demo ](https://work.yehuzi.com/quokka/)     
+### [Live Demo ](https://yehuzi.github.io/demo/quokka/)     
 
 😊**Hello，Quokka** ：A modern, clean, multi-picture, responsive Ghost theme. 一个现代、简洁、多图、响应式的 Ghost 主题。
 
