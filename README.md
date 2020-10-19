@@ -1,6 +1,6 @@
 ## Quokka
 
-### [Live Demo ](https://heyrock.github.io/demo/quokka/)     
+### [Live Demo ](https://cjup.github.io/demo/quokka/)     
 
 
 😊Hello，Quokka     
@@ -17,7 +17,7 @@ Quokka，中文名：短尾矮袋鼠，是世界最小的袋鼠之一，身高�
 
 #### 一. 安装主题
 
-1. 点击[这里](https://github.com/heyrock/ghost-theme-quokka/releases)下载主题压缩包
+1. 点击[这里](https://github.com/cjup/ghost-theme-quokka/releases)下载主题压缩包
 
 2. 进入自己的 Ghost 博客后台，点击：SETTINGS->Design->Upload a theme，上传第一步下载的主题包并启用主题
 
